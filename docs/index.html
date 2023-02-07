@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="icon" href="data:,">
+    <title>Redirecting...</title>
+    <style>body { font-family: sans-serif; }</style>
+  </head>
+  <body>
+    <div id="message"></div>
+    <script>
+      var url = decodeURIComponent(location.hash.substring(1));
+      if (!url) {
+        document.getElementById("message").textContent = "Error: No URL specified";
+      } else if (!/^http[s]?:\/\//.test(url)) {
+        document.getElementById("message").textContent = "Error: Invalid URL";
+      } else {
+        location.href = url;
+      }
+    </script>
+  </body>
+</html>
